@@ -1,8 +1,7 @@
 #include <iostream>
 
 /*
- * Przetestowałem na do 30 i zgadza się z rozwiązaniem książkowym, a moje jest liniowe, ich chyba coś ok. n².
- * Ale jaja zrobiłem lepsze rozwiązanie niż w książce :D
+ * This soulitin is better than book's one, it's linear :-)
  */
 
 int Count(int n)
