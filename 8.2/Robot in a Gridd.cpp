@@ -14,6 +14,8 @@ constexpr int grid[ROWS][COLS] = {
     {0,0,0,0,0}
 };
 
+bool visited[ROWS][COLS] = {};
+
 void printGrid()
 {
     for (int r = 0; r < ROWS; ++r)
@@ -40,6 +42,10 @@ struct Cell
 
 bool findPath(std::vector<Cell> & path, Cell cell)
 {
+    if (visited[cell.r][cell.c])
+        return false;
+    visited[cell.r][cell.c] = true;
+
     if (cell == Cell(ROWS-1, COLS-1) ) {
         path.push_back(cell);
         return true;
