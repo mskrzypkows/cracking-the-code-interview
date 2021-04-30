@@ -4,9 +4,6 @@
 #include <algorithm>
 
 
-
-
-
 void AddPermutationsRecursive(const std::string & prefix, const std::string & suffix, std::vector<std::string> & permutations)
 {
     if (suffix.length() == 1)
@@ -15,10 +12,11 @@ void AddPermutationsRecursive(const std::string & prefix, const std::string & su
         return;
     }
 
-    for (const auto & character: suffix)
+    for (auto i = 0; i < suffix.length(); ++i)
     {
+        auto character = suffix[i];
         std::string copyOfSuffix(suffix);
-        copyOfSuffix.erase(copyOfSuffix.find(character), 1);// std::find(copyOfSuffix.cbegin(), copyOfSuffix.cend(), character));
+        copyOfSuffix.erase(i, 1);
         AddPermutationsRecursive(prefix + character, copyOfSuffix, permutations);
     }
 }
@@ -33,13 +31,13 @@ int main()
 {
     std::vector<std::string> permutations;
 
-    std::string input("abc");//defghijk");
+    std::string input("abcdefghijk");
     AddPermutations(input, permutations);
 
-    for( const auto & str : permutations)
-    {
-        std::cout<<str<<"\n";
-    }
+//     for( const auto & str : permutations)
+//     {
+//         std::cout<<str<<"\n";
+//     }
 
     return 0;
 }
